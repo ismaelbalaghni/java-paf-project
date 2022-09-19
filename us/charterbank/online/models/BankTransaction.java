@@ -1,4 +1,4 @@
-package us.charterbank.online;
+package us.charterbank.online.models;
 
 public class BankTransaction {
 
@@ -40,6 +40,6 @@ public class BankTransaction {
 
     @Override
     public String toString() {
-        return transactionName + "\t\t" + transactionType + "\t\t$" + transactionAmount;
+        return String.format("%-21s%-21s%-12f", transactionName, transactionType, transactionAmount);
     }
 }

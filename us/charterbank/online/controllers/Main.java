@@ -1,17 +1,30 @@
-package us.charterbank.online;
+package us.charterbank.online.controllers;
 
-import java.util.Random;
+import us.charterbank.online.models.Bank;
+import us.charterbank.online.models.Client;
+import us.charterbank.online.models.Employee;
+
 import java.util.Scanner;
 
 public class Main{
+
+    public enum Positions{
+        BRANCH_MANAGER, COUNSELOR
+    }
 
     static Scanner userInput = new Scanner(System.in);
 
     static Bank bank;
 
-    static Employee branchManager, counselor1, counselor2, counselor3, counselor4;
+    static Employee branchManager;
+    static Employee counselor1;
+    static Employee counselor2;
+    static Employee counselor3;
+    static Employee counselor4;
 
-    static Client exampleClient, exampleClient2, exampleClient3;
+    static Client exampleClient;
+    static Client exampleClient2;
+    static Client exampleClient3;
 
     public static void initializeBank(){
         bank = new Bank("Charter Bank", "2605 Farland St, Foxborough, MA 02035", "Mon-Sat 09.00am-05.00pm");
@@ -21,11 +34,11 @@ public class Main{
         bank.addClient(exampleClient);
         bank.addClient(exampleClient2);
         bank.addClient(exampleClient3);
-        branchManager = new Employee("John Sweeney", "Pearlman Ave, 1094, Franklin, 02038, MA", 1, "1987/06/25", "Branch Manager");
-        counselor1 = new Employee("April Griffin", "Randolph St, 2949, Mattapoisett, 02739, MA", 1988, "1993/04/30", "Counselor");
-        counselor2 = new Employee("Jack Harvey", "Cedar Lane, 2331, Boston, 02109, MA", 6544, "2006/10/21", "Counselor");
-        counselor3 = new Employee("Thomas Blankenship", "Valley View Dr, 2214, Boston, 02107, MA", 3501, "2001/04/10", "Counselor");
-        counselor4 = new Employee("Helen Banks", "Valley View Dr, 2061, Brookline, 02146, MA", 4788, "2003/12/01", "Counselor");
+        branchManager = new Employee("John Sweeney", "Pearlman Ave, 1094, Franklin, 02038, MA", 1, "1987/06/25", Positions.BRANCH_MANAGER.name());
+        counselor1 = new Employee("April Griffin", "Randolph St, 2949, Mattapoisett, 02739, MA", 1988, "1993/04/30", Positions.COUNSELOR.name());
+        counselor2 = new Employee("Jack Harvey", "Cedar Lane, 2331, Boston, 02109, MA", 6544, "2006/10/21", Positions.COUNSELOR.name());
+        counselor3 = new Employee("Thomas Blankenship", "Valley View Dr, 2214, Boston, 02107, MA", 3501, "2001/04/10", Positions.COUNSELOR.name());
+        counselor4 = new Employee("Helen Banks", "Valley View Dr, 2061, Brookline, 02146, MA", 4788, "2003/12/01", Positions.COUNSELOR.name());
         bank.hireEmployee(branchManager);
         bank.hireEmployee(counselor1);
         bank.hireEmployee(counselor2);
@@ -63,7 +76,7 @@ public class Main{
             }
 		} else {
 			int tries = 1;
-            System.out.format("Welcome %s.\n", userName);
+            System.out.format("Welcome %s.%n", userName);
 			do {
                 System.out.format("Please enter your password (attempt %d of 3): ", tries);
                 String userPassword = userInput.nextLine();
@@ -94,7 +107,7 @@ public class Main{
         System.out.print("\033[H\033[2J");
         System.out.flush();
         do {
-            System.out.format("Your total balance is: $%(,.2f\n", activeClient.getGeneralBalance());
+            System.out.format("Your total balance is: $%(,.2f%n", activeClient.getGeneralBalance());
             System.out.println("""
                     Here is what you can do:
                     1/\tWithdraw money
@@ -113,7 +126,7 @@ public class Main{
                 case 1 -> activeClient.withdrawMoney(userInput);
                 case 2 -> activeClient.depositMoney(userInput);
                 case 3 -> activeClient.addNewAccount(userInput);
-                case 4 -> activeClient.getCounselor();
+                case 4 -> activeClient.showCounselorInfo();
                 case 5 -> System.out.println("The Card order feature is not yet implemented.");
                 case 6 -> System.out.println("The Cheque order feature is not yet implemented");
                 case 7 -> activeClient.transferMoney(userInput);
@@ -128,5 +141,4 @@ public class Main{
         } while(appRunning);
         userInput.close();
     }
-
 } // END OF Main

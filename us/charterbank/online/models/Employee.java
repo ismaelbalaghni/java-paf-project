@@ -1,9 +1,10 @@
-package us.charterbank.online;
+package us.charterbank.online.models;
 
-public class Employee extends Person{
+public class Employee extends Person {
 
     protected int employeeNumber = 0;
-    protected String hireDate, fireDate;
+    protected String hireDate;
+    protected String fireDate;
 
     protected String service;
 
@@ -44,5 +45,16 @@ public class Employee extends Person{
 
     public void setService(String service) {
         this.service = service;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeNumber=" + employeeNumber +
+                ", hireDate='" + hireDate + '\'' +
+                ", fireDate='" + fireDate + '\'' +
+                ", service='" + service + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

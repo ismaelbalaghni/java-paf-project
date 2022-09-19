@@ -1,7 +1,7 @@
-package us.charterbank.online;
+package us.charterbank.online.models;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,8 +10,8 @@ public class Client extends Person {
     private double generalBalance = 0.0;
     private String clientUserName;
     private String clientUserPassword;
-    private final ArrayList<Account> userAccounts = new ArrayList<Account>();
-    private final ArrayList<Card> cards = new ArrayList<Card>();
+    private final ArrayList<Account> userAccounts = new ArrayList<>();
+    private final ArrayList<Card> cards = new ArrayList<>();
     private Employee counselor;
 
     public Client(String clientName, String clientAddress) {
@@ -120,7 +120,7 @@ public class Client extends Person {
         System.out.print("Please enter the account number of the recipient: ");
         scanner.nextLine();
         int recipientAcctNumber = scanner.nextInt();
-        System.out.format("Transferring $%d to the account number %d...\n", transferAmount, recipientAcctNumber);
+        System.out.format("Transferring $%f to the account number %d...%n", transferAmount, recipientAcctNumber);
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
@@ -129,7 +129,7 @@ public class Client extends Person {
         return cards.size();
     }
 
-    public ArrayList<Card> getCards() {
+    public List<Card> getCards() {
         return cards;
     }
 
@@ -169,7 +169,7 @@ public class Client extends Person {
         return generalBalance;
     }
 
-    public ArrayList<Account> getUserAccounts() {
+    public List<Account> getUserAccounts() {
         return userAccounts;
     }
 
@@ -178,14 +178,15 @@ public class Client extends Person {
     }
 
     public void showAccountOperations(){
-        System.out.println("All Accounts Operations");
+        System.out.println("\tAll Accounts Operations\t");
         for(Account account : getUserAccounts()){
             System.out.println(account);
+            System.out.format("%-21s%-21s%-12s%n", "Transaction name", "Transaction type", "Amount");
             for (BankTransaction transaction : account.getAccountMovements()){
                 System.out.println(transaction);
             }
         }
-        System.out.println("All Cards Operations");
+        System.out.println("\tAll Cards Operations\t");
         for(Card card : getCards()){
             System.out.println(card);
             for(BankTransaction transaction : card.getBankTransactions()){

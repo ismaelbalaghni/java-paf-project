@@ -1,6 +1,7 @@
-package us.charterbank.online;
+package us.charterbank.online.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Card {
 
@@ -11,7 +12,7 @@ public class Card {
 	private Account linkedAccount;
 	private double cardBalance = 0.0;
 
-	private ArrayList<BankTransaction> bankTransactions = new ArrayList<BankTransaction>();
+	private ArrayList<BankTransaction> bankTransactions = new ArrayList<>();
 
 	public Card(String cardholderName) {
 		this.cardholderName = cardholderName;
@@ -77,7 +78,7 @@ public class Card {
 		this.cardBalance = cardBalance;
 	}
 
-	public ArrayList<BankTransaction> getBankTransactions() {
+	public List<BankTransaction> getBankTransactions() {
 		return bankTransactions;
 	}
 

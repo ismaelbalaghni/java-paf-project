@@ -1,4 +1,4 @@
-package us.charterbank.online;
+package us.charterbank.online.models;
 
 public class Address {
     protected String streetName;

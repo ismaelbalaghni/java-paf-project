@@ -1,7 +1,7 @@
-package us.charterbank.online;
+package us.charterbank.online.models;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 public class Account {
@@ -10,7 +10,7 @@ public class Account {
 	private final String accountType;
 	private final String accountNumber;
 	private double accountBalance = 0.0;
-	private final ArrayList<BankTransaction> bankTransactions = new ArrayList<BankTransaction>();
+	private final ArrayList<BankTransaction> bankTransactions = new ArrayList<>();
 
 	public Account(String holderName, String accountType) {
 		this.holderName = holderName;
@@ -50,7 +50,7 @@ public class Account {
 		this.accountBalance = accountBalance;
 	}
 
-	public ArrayList<BankTransaction> getAccountMovements() {
+	public List<BankTransaction> getAccountMovements() {
 		return bankTransactions;
 	}
 
@@ -78,7 +78,7 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return accountType + " ACCT.\t\tNO. " + accountNumber + " \t\tBALANCE: $" + accountBalance;
+		return String.format("%-21sNO. %-17sBALANCE: $%-12f", accountType, accountNumber, accountBalance);
 	}
 
 }

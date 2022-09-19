@@ -1,7 +1,8 @@
-package us.charterbank.online;
+package us.charterbank.online.models;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Bank {
     private String bankName;
@@ -40,12 +41,12 @@ public class Bank {
         this.bankOpeningHours = bankOpeningHours;
     }
 
-    public ArrayList<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(ArrayList<Employee> employees) {
-        this.employees = employees;
+    public void setEmployees(List<Employee> employees) {
+        this.employees = (ArrayList<Employee>) employees;
     }
 
     public void hireEmployee(Employee newEmployee){
@@ -57,12 +58,12 @@ public class Bank {
         return this.employees.remove(employee);
     }
 
-    public ArrayList<Client> getClients() {
+    public List<Client> getClients() {
         return clients;
     }
 
-    public void setClients(ArrayList<Client> clients) {
-        this.clients = clients;
+    public void setClients(List<Client> clients) {
+        this.clients = (ArrayList<Client>) clients;
     }
 
     public boolean addClient(Client client){
