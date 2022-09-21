@@ -1,10 +1,11 @@
 package us.charterbank.online.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Account {
+public class Account implements Serializable {
 
 	private String holderName;
 	private final String accountType;
@@ -30,24 +31,12 @@ public class Account {
 		return holderName;
 	}
 
-	public final void setHolderName(String holderName) {
-		this.holderName = holderName;
-	}
-
 	public final String getAccountType() {
 		return accountType;
 	}
 
 	public String getAccountNumber() {
 		return accountNumber;
-	}
-
-	public double getAccountBalance() {
-		return accountBalance;
-	}
-
-	public void setAccountBalance(double accountBalance) {
-		this.accountBalance = accountBalance;
 	}
 
 	public List<BankTransaction> getAccountMovements() {
@@ -65,15 +54,15 @@ public class Account {
 		return accountBalance;
 	}
 
-	public double withdrawMoney(double withdraw) {
+	public boolean withdrawMoney(double withdraw) {
 		BankTransaction transaction = new BankTransaction("Debit", "One-time Withdraw", withdraw);
 		if (accountBalance - withdraw < 0) {
-			System.err.println("No withdrawal done. Not enough funds.");
+			return false;
 		} else {
 			accountBalance -= withdraw;
 			addAccountOperation(transaction);
+			return true;
 		}
-		return accountBalance;
 	}
 
 	@Override

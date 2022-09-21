@@ -1,9 +1,10 @@
 package us.charterbank.online.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Card {
+public class Card implements Serializable {
 
 	private String cardholderName;
 	private String cardNumber;
@@ -12,7 +13,7 @@ public class Card {
 	private Account linkedAccount;
 	private double cardBalance = 0.0;
 
-	private ArrayList<BankTransaction> bankTransactions = new ArrayList<>();
+	private final ArrayList<BankTransaction> bankTransactions = new ArrayList<>();
 
 	public Card(String cardholderName) {
 		this.cardholderName = cardholderName;
@@ -30,38 +31,6 @@ public class Card {
 		this.verificationCode = verificationCode;
 	}
 
-	public String getCardholderName() {
-		return cardholderName;
-	}
-
-	public void setCardholderName(String cardholderName) {
-		this.cardholderName = cardholderName;
-	}
-
-	public String getCardNumber() {
-		return cardNumber;
-	}
-
-	public void setCardNumber(String cardNumber) {
-		this.cardNumber = cardNumber;
-	}
-
-	public String getExpirationDate() {
-		return expirationDate;
-	}
-
-	public void setExpirationDate(String expirationDate) {
-		this.expirationDate = expirationDate;
-	}
-
-	public String getVerificationCode() {
-		return verificationCode;
-	}
-
-	public void setVerificationCode(String verificationCode) {
-		this.verificationCode = verificationCode;
-	}
-
 	public Account getLinkedAccount() {
 		return linkedAccount;
 	}
@@ -74,15 +43,12 @@ public class Card {
 		return cardBalance;
 	}
 
-	public void setCardBalance(double cardBalance) {
-		this.cardBalance = cardBalance;
-	}
-
 	public List<BankTransaction> getBankTransactions() {
 		return bankTransactions;
 	}
 
 	public void addTransaction(BankTransaction transaction){
-		getBankTransactions().add(transaction);
+		bankTransactions.add(transaction);
+		cardBalance += transaction.getTransactionAmount();
 	}
 }

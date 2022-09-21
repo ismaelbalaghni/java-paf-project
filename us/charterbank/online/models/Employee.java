@@ -1,6 +1,8 @@
 package us.charterbank.online.models;
 
-public class Employee extends Person {
+import java.io.Serializable;
+
+public class Employee extends Person implements Serializable {
 
     protected int employeeNumber = 0;
     protected String hireDate;
@@ -19,16 +21,8 @@ public class Employee extends Person {
         return employeeNumber;
     }
 
-    public void setEmployeeNumber(int employeeNumber) {
-        this.employeeNumber = employeeNumber;
-    }
-
     public String getHireDate() {
         return hireDate;
-    }
-
-    public void setHireDate(String hireDate) {
-        this.hireDate = hireDate;
     }
 
     public String getFireDate() {
@@ -37,10 +31,6 @@ public class Employee extends Person {
 
     public void setFireDate(String fireDate) {
         this.fireDate = fireDate;
-    }
-
-    public String getService() {
-        return service;
     }
 
     public void setService(String service) {

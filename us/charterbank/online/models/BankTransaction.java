@@ -1,12 +1,14 @@
 package us.charterbank.online.models;
 
-public class BankTransaction {
+import java.io.Serializable;
 
-    private String transactionType;
+public class BankTransaction implements Serializable {
 
-    private String transactionName;
+    private final String transactionType;
 
-    private double transactionAmount;
+    private final String transactionName;
+
+    private final double transactionAmount;
 
     public BankTransaction(String transactionType, String transactionName, double transactionAmount) {
         this.transactionType = transactionType;
@@ -14,28 +16,8 @@ public class BankTransaction {
         this.transactionAmount = transactionAmount;
     }
 
-    public String getTransactionType() {
-        return transactionType;
-    }
-
-    public void setTransactionType(String transactionType) {
-        this.transactionType = transactionType;
-    }
-
-    public String getTransactionName() {
-        return transactionName;
-    }
-
-    public void setTransactionName(String transactionName) {
-        this.transactionName = transactionName;
-    }
-
     public double getTransactionAmount() {
         return transactionAmount;
-    }
-
-    public void setTransactionAmount(double transactionAmount) {
-        this.transactionAmount = transactionAmount;
     }
 
     @Override
