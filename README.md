@@ -8,3 +8,6 @@ J'aimerais me refaire la main sur les design patterns, les architectures logicie
 - Architecture MVC
 - Tests unitaires
 - Mise en place de Codecov
+
+## Badges
+[![codecov](https://codecov.io/github/ismaelbalaghni/java-paf-project/branch/master/graph/badge.svg?token=zaBSDvqS3V)](https://codecov.io/github/ismaelbalaghni/java-paf-project)
