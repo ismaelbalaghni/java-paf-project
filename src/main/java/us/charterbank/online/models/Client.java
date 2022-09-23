@@ -1,9 +1,9 @@
 package us.charterbank.online.models;
 
 import java.io.Serializable;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Client extends Person implements Serializable {
     private int userAccountsAmount = 0;
@@ -41,7 +41,7 @@ public class Client extends Person implements Serializable {
     }
 
     public boolean orderNewCard() {
-        Random rand = new Random();
+        SecureRandom rand = new SecureRandom();
         if(rand.ints(1, 100, 1000).findFirst().isPresent()){
             int cvv = rand.ints(1, 100, 1000).findFirst().getAsInt();
             String verificationCode = String.format("%03d", cvv);

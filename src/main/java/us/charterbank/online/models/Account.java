@@ -1,9 +1,9 @@
 package us.charterbank.online.models;
 
 import java.io.Serializable;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Account implements Serializable {
 
@@ -16,7 +16,7 @@ public class Account implements Serializable {
 	public Account(String holderName, String accountType) {
 		this.holderName = holderName;
 		this.accountType = accountType;
-		Random rand = new Random();
+		SecureRandom rand = new SecureRandom();
 		int acctNumber = rand.ints(1, 1, 1000000000).findFirst().getAsInt();
 		this.accountNumber = String.format("%08d", acctNumber);
 	}

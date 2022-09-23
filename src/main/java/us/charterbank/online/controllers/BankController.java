@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 
 public class BankController {
 
-    private BankView bankView;
-    private BankModel bankModel;
+    private final BankView bankView;
+    private final BankModel bankModel;
 
     public BankController(BankView bankView, BankModel bankModel) {
         this.bankView = bankView;
@@ -21,7 +21,8 @@ public class BankController {
     class LoginListener implements ActionListener{
 
         public void actionPerformed(ActionEvent e) {
-            String userName, userPassword = "";
+            String userName;
+            String userPassword;
             try {
                 userName = bankView.getUserName();
                 userPassword = bankView.getUserPass();
