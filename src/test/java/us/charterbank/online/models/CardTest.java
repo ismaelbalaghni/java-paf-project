@@ -11,7 +11,7 @@ class CardTest {
 
     @Test
     void getLinkedAccount() {
-        Assertions.assertThat(CARD.getLinkedAccount()).as("Compte bancaire lié à la carte").isEqualTo(null);
+        Assertions.assertThat(CARD.getLinkedAccount()).as("Compte bancaire lié à la carte").isNull();
     }
 
     @Test
