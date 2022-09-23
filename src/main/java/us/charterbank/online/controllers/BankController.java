@@ -1,7 +1,7 @@
 package us.charterbank.online.controllers;
 
-import us.charterbank.online.models.BankModel;
 import us.charterbank.online.views.BankView;
+import us.charterbank.online.models.BankModel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

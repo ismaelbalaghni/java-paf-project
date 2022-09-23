@@ -1,12 +1,10 @@
 package us.charterbank.online;
 
+import us.charterbank.online.models.Employee;
 import us.charterbank.online.controllers.BankController;
 import us.charterbank.online.models.BankModel;
 import us.charterbank.online.models.Client;
-import us.charterbank.online.models.Employee;
 import us.charterbank.online.views.BankView;
-
-import java.util.Scanner;
 
 public class Main{
 
