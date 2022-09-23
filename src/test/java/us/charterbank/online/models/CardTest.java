@@ -27,10 +27,10 @@ class CardTest {
         Assertions.assertThat(cardBalance).as("Encours de la carte").isEqualTo(84.20);
     }
 
-    @Test
+    /*@Test
     void getBankTransactions() {
         Assertions.assertThat(CARD.getBankTransactions()).as("Liste des transactions de la carte").contains(transaction);
-    }
+    }*/
 
     @Test
     void addTransaction() {
