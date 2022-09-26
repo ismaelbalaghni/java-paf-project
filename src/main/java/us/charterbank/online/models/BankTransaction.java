@@ -20,8 +20,8 @@ public class BankTransaction implements Serializable {
         return transactionAmount;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return String.format("%-21s%-21s%-12f", transactionName, transactionType, transactionAmount);
-    }
+    }*/
 }

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 class PersonTest {
 
-    private final Person testPerson = new Person("John Adams", "Tenmile Rd, 115, Foxborough, 02035, MA");
+    private final Person testPerson = new Person("John Adams", "Tenmile Rd, 115, Foxborough, 02035, MA, USA");
 
     @Test
     void getName() {
